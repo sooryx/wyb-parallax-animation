@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants/customcolors.dart';
 
 class FamilyGroupWidget extends StatelessWidget {
   @override
@@ -8,22 +11,22 @@ class FamilyGroupWidget extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          width: 100,
-          height: 100,
+          width: 100.w,
+          height: 100.h,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 246, 117, 86),
+            color: CustomColors.deepOrange,
             borderRadius: BorderRadius.circular(45),
           ),
         ),
         Positioned(
-          top: 10,
+          top: 10.h,
           right: 0,
           child: Container(
-            width: 24,
-            height: 24,
+            width: 24.w,
+            height: 24.h,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 246, 117, 86),
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
                 width: 3,
                 color: Colors.white              )
@@ -33,7 +36,7 @@ class FamilyGroupWidget extends StatelessWidget {
                 '4',
                 style: GoogleFonts.montserrat(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -47,7 +50,7 @@ class FamilyGroupWidget extends StatelessWidget {
               'Family',
               style: GoogleFonts.montserrat(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -55,7 +58,7 @@ class FamilyGroupWidget extends StatelessWidget {
               'Group',
               style: GoogleFonts.montserrat(
                 color: Colors.white,
-                fontSize: 12,
+                fontSize: 12.sp,
               ),
             ),
           ],

@@ -6,14 +6,15 @@ class SalaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 30,left: 40,right: 10),
-      width: 220,
-      height: 220,
+      padding: EdgeInsets.only(top: 30,left: 60,right: 10),
+      width: 250,
+      height: 250,
       decoration: BoxDecoration(
         color: CustomColors.deepBlueUI,
        shape: BoxShape.circle
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start  ,
         children: [
           Text(
@@ -28,18 +29,21 @@ class SalaryWidget extends StatelessWidget {
             '\$12,475',
             style: GoogleFonts.montserrat(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: 42,
               fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(height: 20,),
           Text(
+
             'Drag to the person you want to transfer money',
+
             style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 10,
+              color: Colors.white54,
+              fontSize: 12,
+              fontWeight: FontWeight.w500
             ),
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.start,
           ),
         ],
       ),

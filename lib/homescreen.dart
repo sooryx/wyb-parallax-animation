@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:assessment/constants/customcolors.dart';
 import 'package:assessment/constants/images.dart';
@@ -35,15 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 120,
+        leadingWidth: 120.w,
         leading: Row(
           children: [
             Icon(
               Icons.arrow_back_ios_new_rounded,
               color: CustomColors.deepBlueUI,
             ),
-            const SizedBox(
-              width: 5,
+            SizedBox(
+              width: 5.w,
             ),
             Expanded(
               child: Text(
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w400,
                     color: CustomColors.deepBlueUI,
-                    fontSize: 18),
+                    fontSize: 18.sp),
               ),
             ),
           ],
@@ -59,48 +60,47 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(
           'Transfer',
           style: GoogleFonts.montserrat(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
+              color: Colors.black, fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
       ),
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.dg),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
-                const Text(
+                Text(
                   'Who do you want to transfer money to?',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Container(
-                  padding: const EdgeInsets.all(8),
-                  width: 80,
+                  padding: EdgeInsets.all(10.dg),
+                  width: 90.w,
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(12),
+                    color: CustomColors.lightBlack,
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  child: const Row(
+                  child: Row(
                     children: [
                       Icon(
                         Icons.add,
                         color: Colors.white,
                       ),
+                      SizedBox(width: 5.w,),
                       Text(
                         'New',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(fontSize: 14.sp, color: Colors.white),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.55,
+                Expanded(
                   child: PageView.builder(
                     controller: _pageController,
                     itemCount: 2, // Replace with your actual page count
@@ -111,10 +111,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       return AnimatedBuilder(
                         animation: _pageController,
                         builder: (context, child) {
-                          return Transform.translate(
-                            offset: Offset(-40 * gauss * pageOffset.sign, 0),
-                            child: index == 0 ? page1() : page2(),
-                          );
+                          // Apply parallax effect to each item inside pages
+                          return index == 0 ? page1(pageOffset, gauss) : page2(pageOffset, gauss);
                         },
                       );
                     },
@@ -131,8 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SalaryWidget(),
-                const SizedBox(
-                  width: 60,
+                SizedBox(
+                  width: 60.w,
                 ),
                 ViewAllWidget(),
               ],
@@ -144,61 +142,75 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget page1() {
-
+  Widget page1(double pageOffset, double gauss) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
-              child: Image.asset(
-                ImagePaths.person1,
-                height: 100,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 60.h),
+              child: Transform.translate(
+                offset: Offset(-120 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person14,
+                  height: 100.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Image.asset(
-                ImagePaths.person2,
-                height: 50,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 10.h),
+              child: Transform.translate(
+                offset: Offset(-50 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person2,
+                  height: 50.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             FamilyGroupWidget(),
           ],
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 80.0),
-              child: Image.asset(
-                ImagePaths.person4,
-                height: 80,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 80.h),
+              child: Transform.translate(
+                offset: Offset(-50 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person4,
+                  height: 80.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Image.asset(
-                ImagePaths.person5,
-                height: 120,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 10.h),
+              child: Transform.translate(
+                offset: Offset(-120 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person5,
+                  height: 120.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 80.0),
-              child: Image.asset(
-                ImagePaths.person3,
-                height: 70,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 80.h),
+              child: Transform.translate(
+                offset: Offset(-80 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person3,
+                  height: 70.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],
@@ -207,8 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget page2() {
-
+  Widget page2(double pageOffset, double gauss) {
     return Column(
       children: [
         Row(
@@ -216,60 +227,78 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Image.asset(
-                ImagePaths.person7,
-                height: 120,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 10.h),
+              child: Transform.translate(
+                offset: Offset(-80 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person7,
+                  height: 120.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
-              child: Image.asset(
-                ImagePaths.person2,
-                height: 110,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 60.h),
+              child: Transform.translate(
+                offset: Offset(-120 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person8,
+                  height: 110.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset(
-                ImagePaths.person6,
-                height: 90,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 20.h),
+              child: Transform.translate(
+                offset: Offset(-60 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person6,
+                  height: 90.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset(
-                ImagePaths.person4,
-                height: 70,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 20.h),
+              child: Transform.translate(
+                offset: Offset(-30 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person10,
+                  height: 70.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 70.0),
-              child: Image.asset(
-                ImagePaths.person5,
-                height: 120,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 70.h),
+              child: Transform.translate(
+                offset: Offset(-120  * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person12,
+                  height: 120.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Image.asset(
-                ImagePaths.person3,
-                height: 90,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 20.h),
+              child: Transform.translate(
+                offset: Offset(-50 * gauss * pageOffset.sign, 0),
+                child: Image.asset(
+                  ImagePaths.person9,
+                  height: 90.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],
@@ -278,4 +307,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
