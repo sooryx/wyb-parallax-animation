@@ -40,7 +40,7 @@ class Page1 extends StatelessWidget {
                 ),
               ),
             ),
-            FamilyGroupWidget(),
+            const FamilyGroupWidget(),
           ],
         ),
         SizedBox(

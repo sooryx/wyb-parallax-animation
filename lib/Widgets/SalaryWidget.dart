@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SalaryWidget extends StatelessWidget {
+  const SalaryWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 30,left: 60,right: 10),
+      padding: const EdgeInsets.only(top: 30,left: 60,right: 10),
       width: 250,
       height: 250,
       decoration: BoxDecoration(
@@ -33,7 +35,7 @@ class SalaryWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Text(
 
             'Drag to the person you want to transfer money',

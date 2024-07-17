@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                     .of(context)
                     .primaryTextTheme,
               ),),
-            home: HomeScreen(),
+            home: const HomeScreen(),
           );
         }
     );

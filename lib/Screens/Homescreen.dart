@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:assessment/constants/customcolors.dart';
-import 'package:assessment/constants/images.dart';
-import 'package:assessment/widgets/FamilyGroupWidget.dart';
 import 'package:assessment/widgets/SalaryWidget.dart';
 import 'package:assessment/widgets/ViewAllWidget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -93,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.add,
                         color: Colors.white,
                       ),

@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants/customcolors.dart';
 
 class FamilyGroupWidget extends StatelessWidget {
+  const FamilyGroupWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -25,7 +27,7 @@ class FamilyGroupWidget extends StatelessWidget {
             width: 24.w,
             height: 24.h,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 246, 117, 86),
+              color: const Color.fromARGB(255, 246, 117, 86),
                 borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
                 width: 3,
