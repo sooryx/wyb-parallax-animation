@@ -1,16 +1,50 @@
-# assessment
 
-A new Flutter project.
+## Key Features
+- The application implements a dynamic parallax effect in the PageView by using the `Transform.translate` method to create a smooth and engaging visual experience. 
+- The effect is achieved by adjusting the offset of widgets based on the page offset and a Gaussian function, creating a sense of depth as the user scrolls through pages.
+- Custom AppBar with Google Fonts.
+- Dynamic PageView with a parallax effect.
+- Custom widgets for additional functionalities.
+- Responsive design using the flutter_screenutil package.
 
-## Getting Started
+## Project Structure
 
-This project is a starting point for a Flutter application.
+### lib/screens/HomeScreen.dart
 
-A few resources to get you started if this is your first Flutter project:
+This file contains the `HomeScreen` widget, which serves as the main screen.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### lib/screens/Page1.dart and lib/screens/Page2.dart
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+These files define `Page1` and `Page2` widgets, which are used in the `PageView` of the `HomeScreen`. 
+
+### lib/constants/images.dart
+
+This file contains image assets used throughout the application.
+
+### lib/constants/customcolors.dart
+
+This file defines custom color constants used for styling the application.
+
+### lib/widgets/FamilyGroupWidget.dart
+
+This file defines the `FamilyGroupWidget` used for displaying family group-related information.
+
+### lib/widgets/SalaryWidget.dart
+
+This file contains the `SalaryWidget` used in the `HomeScreen` for displaying salary-related information.
+
+### lib/widgets/ViewAllWidget.dart
+
+This file contains the `ViewAllWidget` used in the `HomeScreen` for viewing all items or transactions.
+
+### lib/main.dart
+
+This is the entry point of the application. It sets up the main widget tree and initializes necessary packages like `flutter_screenutil`.
+
+## Packages Used
+
+- **google_fonts**: For custom font styles.
+- **flutter_screenutil**: For responsive design across different screen sizes.
+
+
+
