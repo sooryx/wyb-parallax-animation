@@ -1,7 +1,6 @@
 
 ## Key Features
-- The application implements a dynamic parallax effect in the PageView by using the `Transform.translate` method to create a smooth and engaging visual experience. 
-- The effect is achieved by adjusting the offset of widgets based on the page offset and a Gaussian function, creating a sense of depth as the user scrolls through pages.
+- The application implements a dynamic parallax effect in the PageView by using the `Transform.translate` method to create a smooth and engaging visual experience. The effect is achieved by adjusting the offset of widgets based on the page offset and a Gaussian function, creating a sense of depth as the user scrolls through pages.
 - Custom AppBar with Google Fonts.
 - Dynamic PageView with a parallax effect.
 - Custom widgets for additional functionalities.
@@ -27,15 +26,15 @@ This file defines custom color constants used for styling the application.
 
 ### lib/widgets/FamilyGroupWidget.dart
 
-This file defines the `FamilyGroupWidget` used for displaying family group-related information.
+This file defines the `FamilyGroupWidget` used in the `HomeScreen`.
 
 ### lib/widgets/SalaryWidget.dart
 
-This file contains the `SalaryWidget` used in the `HomeScreen` for displaying salary-related information.
+This file contains the `SalaryWidget` used in the `HomeScreen` .
 
 ### lib/widgets/ViewAllWidget.dart
 
-This file contains the `ViewAllWidget` used in the `HomeScreen` for viewing all items or transactions.
+This file contains the `ViewAllWidget` used in the `HomeScreen` .
 
 ### lib/main.dart
 
